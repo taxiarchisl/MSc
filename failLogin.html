@@ -1,0 +1,25 @@
+<head>
+  <title>Login</title>
+  <script src="js/crypto-js.min.js"></script>
+  <link href="css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body style="background-color: #806e6e;">
+  <div class="login">
+    <h1>Login</h1>
+    <form action="/auth" method="post">
+      <label for="username">
+        <!-- font awesome icon -->
+        <i class="fas fa-user"></i>
+      </label>
+      <input type="text" name="username" placeholder="Username" id="username" required>
+      <label for="password">
+        <i class="fas fa-lock"></i>
+      </label>
+      <input type="password" name="password" placeholder="Password" id="password" required>
+      <a style="color: red;">Incorrect Username and/or Password!</a>
+      <input class="w-75 btn btn-md btn-primary visible" type="submit" value="Login">
+    </form>
+  </div>
+</body>

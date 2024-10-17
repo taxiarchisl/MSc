@@ -1,0 +1,55 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <title>Login</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/html">
+</head>
+
+<body class="text-center">
+    <main class="form-signin w-100 m-auto">
+        <img class="mb-4" src="media/blockchainIcon.png" alt="" width="72" height="72">
+        <h1 class="h1 mb-3 fw-normal">Register Voter</h1>
+        <Br></Br>
+        <h2 id="headerTxt" class="h2 mb-3 fw-normal">Please login</h1>
+            <p id="userAddress" class="text-gray-600"></p>
+            <br>
+            <button class="w-100 btn btn-lg btn-primary visible" id="loginButton" onclick="loginWithEth()">With
+                wallet</button>
+            <button class="w-50 btn btn-md btn-info invisible" id="moveToVote" onclick="moveToVote()">Let's vote!
+            </button>
+            <p></p>
+            <button class="w-50 btn btn-md btn-warning invisible" id="logoutfromEthAdd"
+                onclick="logoutfromEthAdd()">Remove Address </button><br></br>
+            <div id='passcodeForm' style="display: none;">
+                <label>Pass Code</label>
+                <input type="text" class="form-control" id="passcode" name="passcode">
+                <p></p>
+                <button class="w-75 btn btn-md btn-success" id='confirmPasscode' onclick="addAddress()">Confirm</button>
+            </div>
+
+            <p class="mt-5 mb-3 text-muted">&copy; Voting systems S.A. 2024</p><a><i onclick="logout()"
+                    class="fa fa-sign-out" aria-hidden="true"></i> Log out</a>
+    </main>
+</body>
+<script>
+    window.userAddress = null;
+    window.onload = async () => {
+        // Init Web3 connected to ETH network
+        if (window.ethereum) {
+            window.web3 = new Web3(window.ethereum);
+        } else {
+            alert("No ETH brower extension detected.");
+        }
+
+        // Load in Localstore key
+        showAddress();
+    };
+</script>

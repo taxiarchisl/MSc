@@ -1,0 +1,68 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <title>Login</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/html">
+</head>
+
+<body class="text-center">
+    <main class="form-signin w-100 m-auto">
+        <img class="mb-4" src="media/blockchainIcon.png" alt="" width="72" height="72">
+        <h1 class="h1 mb-3 fw-normal">Admin Panel</h1>
+        <div id='addCandidateForm'>
+            <hr>
+            <h5>Add Candidate</h5>
+            <label>Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+            <p></p>
+            <button class="w-75 btn btn-md btn-primary" id='sendCandidate' onclick="addCandidate()">+ Add </button>
+            <br>
+        </div>
+        <hr>
+        <table style="text-align: center;">
+            <tbody>
+                <tr>
+                    <td>
+                        <div id='startVoting'>
+                            <label>Start Voting</label>
+                            <button class="w-75 btn btn-md btn-success" onclick="startVoting()">Start</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div id='endVoting'>
+                            <label>End Voting</label>
+                            <button class="w-75 btn btn-md btn-warning" onclick="endVoting()">End</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a id = "VotingStatus"></a>
+        <br>
+        <div id='countVotes'>
+            <hr>
+            <label>CountVotes</label>
+            <button class="w-75 btn btn-md btn-info" onclick="countVotes()">Start Count</button>
+            <br><br>
+            <table id="voteTable" style="margin-left: 40px;text-align: center;"></table>
+            <a id="error" style="text-align: center;"></a>
+        </div>
+
+
+        <p class="mt-5 mb-3 text-muted">&copy; Voting systems S.A. 2024</p><a><i onclick="logout()"
+                class="fa fa-sign-out" aria-hidden="true"></i> Log out</a>
+    </main>
+</body>
+
+<script>
+    getVotingStatus();
+</script>
